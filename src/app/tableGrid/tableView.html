@@ -1,0 +1,19 @@
+<table class='table'>
+    <thead>
+        <tr>
+            <th *ngFor='let header of columns'>
+                <span>{{header}}</span>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let rows of data'>
+            <td *ngFor='let row of rows | keys'>{{rows[row]}}</td>
+        </tr>
+    </tbody>
+    <tbody *ngIf='!data.length'>
+        <tr>
+            <td [attr.colspan]='columns.length'>{{emptyMsg}}</td>
+        </tr>
+    </tbody>
+</table>
